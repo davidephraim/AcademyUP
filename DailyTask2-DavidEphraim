@@ -1,0 +1,56 @@
+<!-- nilai < 45 -> D + "Tidak Lulus"
+nilai = 45 -> C + "Cukup"
+nilai > 45 && <= 70 -> B + "Baik"
+nilai > 70 -> A + "Mantab" -->
+
+
+<?php
+$nilai = 75;
+echo "Nilai = $nilai";
+
+echo "<hr>";
+if ($nilai >= 0 && $nilai < 45){
+    echo "[D] Tidak Lulus";
+}
+if ($nilai == 45){
+    echo "[C] Cukup";
+}
+if ($nilai > 45 && $nilai <= 70){
+    echo "[B] Baik";
+}
+if ($nilai > 70 && $nilai <= 100){
+    echo "[A] Mantab";
+}
+?>
+
+<?php
+echo "<hr>";
+function nilai($int){
+    if ($int >= 0 && $int < 45)
+    $nilai = "D";
+    if ($int == 45)
+    $nilai = "C";
+    if ($int > 45 && $int <= 70)
+    $nilai = "B";
+    if ($int > 70 && $int <= 100)
+    $nilai = "A";
+    return $nilai;
+}
+
+$nilai = 70;
+echo "Nilai = $nilai Grade anda adalah " . nilai($nilai);
+?>
+
+<form action = "index.php" method = "get">
+<input type = "text" name = "mk" placeholder = "Nama Matkul">
+<input type = "number" name = "nilai" placeholder = "Nilai">
+<input type = "Submit" name = "btn" value = "Submit">
+</form>
+
+<?php
+echo "<hr>";
+if(isset($_GET['btn'])){
+    echo "Mata Kuliah : " . $_GET['mk'] . "<br>";
+    echo "Grade       : " . $_GET['nilai'] . " [" . nilai($_GET['nilai']) . "]";
+}
+?>
