@@ -22,7 +22,7 @@ for($i=1; $i<=10; $i++){
     echo "$data ";
 }
 
-//while
+//while loop
 echo "<br><br><br>";
 $i = 0;
 while($i <= 10){
